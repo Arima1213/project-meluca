@@ -15,7 +15,8 @@
 							</div>
 						</div>
 						<div class="card-body">
-							<form role="form" class="text-start" action="funcLogin.php" method="post">
+							<form role="form" class="text-start" action="{{ route('login') }}" method="post">
+								@csrf
 								<div class="input-group input-group-outline my-3">
 									<label class="form-label">Email</label>
 									<input type="email" name="email" class="form-control">

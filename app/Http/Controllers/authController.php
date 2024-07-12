@@ -30,11 +30,9 @@ class authController extends Controller
                 'password' => 'required|string|min:8|confirmed',
             ]);
 
-            // Destructure validated data for cleaner usage
             ['name' => $name, 'email' => $email, 'password' => $password] = $validatedData;
 
             try {
-                // Create a new user record
                 $user = User::create([
                     'name' => $name,
                     'email' => $email,
@@ -42,20 +40,27 @@ class authController extends Controller
                 ]);
 
                 if ($user) {
-                    // Display success message using SweetAlert2
-                    info('Registration Successful', 'You are now registered!');
-                    return redirect()->route('login')->with('success', 'Registration successful. You can now login.');
+                    session()->flash('alert', [
+                        'type' => 'success',
+                        'title' => 'Registration Successful',
+                        'message' => 'You are now registered!'
+                    ]);
+                    return redirect()->route('showLogin');
                 } else {
-                    // Display error message using SweetAlert2
-                    info('Registration Failed', 'Failed to register. Please try again.');
-                    return back()->withErrors(['error' => 'Registration failed. Please try again.'])->withInput();
+                    session()->flash('alert', [
+                        'type' => 'error',
+                        'title' => 'Registration Failed',
+                        'message' => 'Failed to register. Please try again.'
+                    ]);
+                    return back()->withInput();
                 }
-
-                // Redirect or return response
             } catch (\Exception $e) {
-                // Handle any exceptions that occur during user creation
-                info('Registration Failed', 'Failed to register. Please try again.');
-                return back()->withErrors(['error' => 'Registration failed. Please try again.'])->withInput();
+                session()->flash('alert', [
+                    'type' => 'error',
+                    'title' => 'Registration Failed',
+                    'message' => 'Failed to register. Please try again.'
+                ]);
+                return back()->withInput();
             }
         } catch (\Illuminate\Validation\ValidationException $e) {
             return back()->withErrors($e->validator->errors())->withInput();
@@ -64,24 +69,28 @@ class authController extends Controller
 
     public function login(Request $request)
     {
-        // Validate the form data
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
 
-        // Attempt to log the user in
         $credentials = $request->only('email', 'password');
         $remember = $request->has('remember');
 
         if (Auth::attempt($credentials, $remember)) {
-            // Authentication successful, redirect to intended page or dashboard
-            return redirect()->intended('/dashboard');
+            session()->flash('alert', [
+                'type' => 'success',
+                'title' => 'Login Successful',
+                'message' => 'Welcome back!'
+            ]);
+            return redirect()->route('landing');
         } else {
-            // Authentication failed, redirect back with error message
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ])->withInput();
+            session()->flash('alert', [
+                'type' => 'error',
+                'title' => 'Login Failed',
+                'message' => 'The provided credentials do not match our records.'
+            ]);
+            return back()->withInput();
         }
     }
 }

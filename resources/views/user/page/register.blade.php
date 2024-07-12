@@ -16,7 +16,8 @@
 							<p class="mb-0">Enter your email and password to register</p>
 						</div>
 						<div class="card-body">
-							<form role="form" action="funcRegister.php" method="POST">
+							<form role="form" action="{{ route('register') }}" method="POST">
+								@csrf
 								<div class="input-group input-group-outline mb-3">
 									<label class="form-label">Name</label>
 									<input type="text" class="form-control" name="name" required>
@@ -28,14 +29,6 @@
 								<div class="input-group input-group-outline mb-3">
 									<label class="form-label">Password</label>
 									<input type="password" class="form-control" name="password" required>
-								</div>
-								<div class="input-group input-group-outline mb-3">
-									<label class="form-label">Phone Number</label>
-									<input type="text" class="form-control" name="number" required>
-								</div>
-								<div class="input-group input-group-outline mb-3">
-									<label class="form-label">Address</label>
-									<input type="text" class="form-control" name="address" required>
 								</div>
 								<div class="form-check form-check-info ps-0 text-start">
 									<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked required>
