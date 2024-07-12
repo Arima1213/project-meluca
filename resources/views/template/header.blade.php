@@ -1,51 +1,20 @@
-<header id="header" class="site-header text-black">
-	<nav id="header-nav" class="navbar navbar-expand-lg mb-3 px-3">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="index.html">
-				<img src="images/MELUCA.png" class="logo" />
-			</a>
-			<button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button"
-				data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<svg class="navbar-icon" width="50" height="50">
-					<use xlink:href="#navbar-icon"></use>
-				</svg>
-			</button>
-			<div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar"
-				aria-labelledby="bdNavbarOffcanvasLabel">
-				<div class="offcanvas-header px-4 pb-0">
-					<a class="navbar-brand" href="index.html">
-						<img src="images/main-logo.png" class="logo" />
-					</a>
-					<button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
-						aria-label="Close" data-bs-target="#bdNavbar"></button>
-				</div>
-				<div class="offcanvas-body">
-					<ul id="navbar"
-						class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
-						<li class="nav-item">
-							<a class="nav-link me-4" href="{{ route('landing') }}">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link me-4" href="{{ route('shop') }}">Shop</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link me-4" href="{{ route('about') }}">About Us</a>
-						</li>
-						<!-- Button Login -->
-						<li class="nav-item">
-							<a class="btn btn-primary me-4" href="{{ route('login') }}">Login</a>
-						</li>
-						<!-- Profile Picture -->
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('profile') }}">
-								<img src="https://source.unsplash.com/random/300x300/?profile" class="rounded-circle"
-									alt="Profile" style="width: 40px; height: 40px;">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
-</header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+<link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+<title>Blasta Admin</title>
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+<!-- Nucleo Icons -->
+<link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+<!-- CSS Files -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
