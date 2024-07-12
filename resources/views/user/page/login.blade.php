@@ -11,7 +11,7 @@
 						<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 							<div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
 								<h4 class="font-weight-bolder mb-0 mt-2 text-center text-white">Login</h4>
-								<p class="mb-0 mt-2 text-center text-white">Blasta Hidroponik</p>
+								<p class="mb-0 mt-2 text-center text-white">Teh Meluca</p>
 							</div>
 						</div>
 						<div class="card-body">
