@@ -45,22 +45,6 @@
 					<span class="nav-link-text ms-1">Feedback</span>
 				</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'call_center' ? 'active bg-gradient-primary' : '' ?> text-white" href="./call_center">
-					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-headset opacity-10"></i>
-					</div>
-					<span class="nav-link-text ms-1">Call Center</span>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'profile' ? 'active bg-gradient-primary' : '' ?> text-white" href="./profile">
-					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-user opacity-10"></i>
-					</div>
-					<span class="nav-link-text ms-1">Profile</span>
-				</a>
-			</li>
 		</ul>
 
 	</div>
