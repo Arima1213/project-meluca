@@ -15,9 +15,7 @@ Route::get('/logout', [landingController::class, 'logout'])->name('logout');
 Route::get('/products', [productsController::class, 'index'])->name('products');
 Route::get('/transactions', [productsController::class, 'index'])->name('transactions');
 
-Route::get('/admin/', [landingController::class, 'index'])->name('landing');
-Route::get('/admin/login', [authController::class, 'showLogin'])->name('showLogin');
-Route::get('/admin/register', [authController::class, 'showRegister'])->name('showRegister');
-Route::post('/admin/login', [authController::class, 'login'])->name('login');
-Route::post('/admin/register', [authController::class, 'register'])->name('register');
-Route::get('/admin/logout', [landingController::class, 'logout'])->name('logout');
+Route::get('/admin/', [landingController::class, 'index'])->name('admin-landing');
+Route::get('/admin/login', [authController::class, 'showLogin'])->name('admin-showLogin');
+Route::post('/admin/login', [authController::class, 'login'])->name('admin-login');
+Route::get('/admin/logout', [landingController::class, 'logout'])->name('admin-logout');
