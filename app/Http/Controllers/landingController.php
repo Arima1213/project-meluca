@@ -8,7 +8,7 @@ class landingController extends Controller
 {
     public function index()
     {
-        return view('page.landing');
+        return view('user.page.landingPage');
     }
     public function about()
     {
