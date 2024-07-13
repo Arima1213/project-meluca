@@ -38,7 +38,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'feedback' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('aboutus') }}">
+				<a class="nav-link <?= $currentUrlSlug == 'feedback' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('feedback') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
 						<i class="fas fa-comments opacity-10"></i>
 					</div>

@@ -18,4 +18,8 @@ class landingController extends Controller
     {
         return view('user.page.team');
     }
+    public function feedback()
+    {
+        return view('user.page.feedback');
+    }
 }

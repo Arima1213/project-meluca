@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [landingController::class, 'index'])->name('landing');
 Route::get('/aboutus', [landingController::class, 'aboutus'])->name('aboutus');
 Route::get('/teams', [landingController::class, 'team'])->name('team');
+Route::get('/feedback', [landingController::class, 'feedback'])->name('feedback');
 Route::get('/login', [authController::class, 'showLogin'])->name('showLogin');
 Route::get('/register', [authController::class, 'showRegister'])->name('showRegister');
 Route::post('/login', [authController::class, 'login'])->name('login');
