@@ -1,4 +1,4 @@
-@extends('template.template')
+@extends('user.template.templates')
 
 @section('container')
 	<section id="about" class="overflow-hidden py-5">

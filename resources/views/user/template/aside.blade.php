@@ -38,11 +38,27 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'feedback' ? 'active bg-gradient-primary' : '' ?> text-white" href="./feedback">
+				<a class="nav-link <?= $currentUrlSlug == 'feedback' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('aboutus') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
 						<i class="fas fa-comments opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Feedback</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link <?= $currentUrlSlug == 'teams' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('team') }}">
+					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
+						<i class="fas fa-comments opacity-10"></i>
+					</div>
+					<span class="nav-link-text ms-1">Tim Kami</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link <?= $currentUrlSlug == 'aboutus' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('aboutus') }}">
+					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
+						<i class="fas fa-comments opacity-10"></i>
+					</div>
+					<span class="nav-link-text ms-1">Tentang Kami</span>
 				</a>
 			</li>
 		</ul>

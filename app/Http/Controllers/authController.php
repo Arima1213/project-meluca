@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class authAdminController extends Controller
+class authController extends Controller
 {
     public function showLogin()
     {

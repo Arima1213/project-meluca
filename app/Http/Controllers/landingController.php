@@ -10,8 +10,12 @@ class landingController extends Controller
     {
         return view('user.page.landingPage');
     }
-    public function about()
+    public function aboutus()
     {
-        return view('page.aboutus');
+        return view('user.page.aboutus');
+    }
+    public function team()
+    {
+        return view('user.page.team');
     }
 }

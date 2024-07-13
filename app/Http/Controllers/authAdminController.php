@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class authController extends Controller
+class authAdminController extends Controller
 {
     public function showLogin()
     {

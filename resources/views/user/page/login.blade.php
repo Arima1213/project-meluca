@@ -1,4 +1,4 @@
-@extends('user.template.loginTemplates')
+@extends('admin.template.templates')
 
 @section('container')
 	<div class="page-header align-items-start min-vh-100"
