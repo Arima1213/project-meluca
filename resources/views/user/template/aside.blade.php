@@ -14,7 +14,7 @@
 			$currentUrlSlug = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 			?>
 			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'index' ? 'active bg-gradient-primary' : '' ?> text-white" href="./index">
+				<a class="nav-link <?= $currentUrlSlug == '' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('landing') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
 						<i class="fas fa-tachometer-alt opacity-10"></i>
 					</div>

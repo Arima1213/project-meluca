@@ -2,7 +2,7 @@
 
 @section('container')
 	<div class="container-fluid py-4">
-		<div class="card card-body mx-md-4 mx-3 mb-5">
+		<div class="card card-body mb-5">
 			<div class="row gx-4 mb-2">
 				<div class="col-auto">
 					<div class="avatar avatar-xl position-relative">
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="card card-body mx-md-4 mx-3 mb-5">
+		<div class="card card-body mb-5">
 			<div class="row gx-4 mb-2">
 				<div class="col-auto">
 					<div class="avatar avatar-xl position-relative">
@@ -124,7 +124,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="card card-body mx-md-4 mx-3 mb-5">
+		<div class="card card-body mb-5">
 			<div class="row gx-4 mb-2">
 				<div class="col-auto">
 					<div class="avatar avatar-xl position-relative">
@@ -185,7 +185,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="card card-body mx-md-4 mx-3 mb-5">
+		<div class="card card-body mb-5">
 			<div class="row gx-4 mb-2">
 				<div class="col-auto">
 					<div class="avatar avatar-xl position-relative">
