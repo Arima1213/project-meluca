@@ -85,4 +85,77 @@ class productsController extends Controller
             return redirect()->back()->with('error', 'There was an error saving the product: ' . $e->getMessage());
         }
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer|exists:products,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer',
+            'weight' => 'required|numeric',
+            'categories' => 'required|array',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // maksimal 5MB
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $product = Product::find($request->id);
+
+            // Update data produk
+            $product->update([
+                'product_name' => $request->name,
+                'product_description' => $request->description,
+                'price' => $request->price,
+                'stock' => $request->stock,
+                'product_weight' => $request->weight,
+            ]);
+
+            // Update kategori produk
+            ProductCategory::where('product_id', $product->id)->delete();
+            foreach ($request->categories as $categoryId) {
+                ProductCategory::create([
+                    'product_id' => $product->id,
+                    'category_id' => $categoryId,
+                ]);
+            }
+
+            // Update gambar produk
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('product_images', 'public');
+                ProductImage::updateOrCreate(
+                    ['product_id' => $product->id],
+                    ['image_url' => $imagePath]
+                );
+            }
+
+            DB::commit();
+            return redirect()->back()->with('success', 'Product updated successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'There was an error updating the product: ' . $e->getMessage());
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer|exists:products,id',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $product = Product::find($request->id);
+            ProductCategory::where('product_id', $product->id)->delete();
+            ProductImage::where('product_id', $product->id)->delete();
+            $product->delete();
+
+            DB::commit();
+            return redirect()->back()->with('success', 'Product deleted successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'There was an error deleting the product: ' . $e->getMessage());
+        }
+    }
 }
