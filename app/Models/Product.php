@@ -17,10 +17,10 @@ class Product extends Model
         'stock',
     ];
 
-    // Relationship with ProductCategory
+    // Relationship with Category
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'product_categories');
+        return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');
     }
 
     // Relationship with OrderItem
@@ -29,6 +29,7 @@ class Product extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    // Relationship with ProductImage
     public function images()
     {
         return $this->hasMany(ProductImage::class);

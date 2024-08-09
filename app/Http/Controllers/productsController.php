@@ -24,7 +24,7 @@ class productsController extends Controller
             'weight' => 'required|numeric',
             'price' => 'required|numeric',
             'stock' => 'required|numeric',
-            'image' => 'required|image|max:5120',
+            'image' => 'nullable|image|max:5120',
             'categories' => 'required|array',
         ]);
 
