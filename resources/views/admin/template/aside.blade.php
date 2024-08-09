@@ -21,7 +21,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'products' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('admin-product') }}">
+				<a class="nav-link <?= $currentUrlSlug == 'produk' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('admin-product') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
 						<i class="fas fa-money-check-alt opacity-10"></i>
 					</div>

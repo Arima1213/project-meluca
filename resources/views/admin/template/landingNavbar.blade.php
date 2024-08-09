@@ -1,30 +1,71 @@
 <nav class="navbar navbar-main navbar-expand-lg border-radius-xl mx-4 px-0 shadow-none" id="navbarBlur" navbar-scroll="true">
 	<div class="container-fluid px-3 py-1">
 		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb me-sm-6 mb-0 me-5 bg-transparent px-0 pb-0 pt-1">
+			<ol class="breadcrumb me-sm-6 mb-0 me-5 bg-transparent px-0 pb-0 pt-1" id="dynamicBreadcrumb">
 				<li class="breadcrumb-item text-sm">
-					<a class="text-dark opacity-5" href="javascript:;">Pages</a>
-				</li>
-				<li class="breadcrumb-item text-dark active text-sm" aria-current="page">
-					Dashboard
+					<span class="text-dark opacity-5">Page</span>
 				</li>
 			</ol>
-			<h6 class="font-weight-bolder mb-0">Dashboard</h6>
+			<h6 class="font-weight-bolder mb-0" id="currentPage">Dashboard</h6>
 		</nav>
+
+		<script>
+			function updateBreadcrumb() {
+				const path = window.location.pathname;
+				const parts = path.split('/').filter(part => part && !part.match(/^\d+$/));
+
+				const breadcrumb = document.getElementById('dynamicBreadcrumb');
+				const currentPage = document.getElementById('currentPage');
+
+				// Clear existing items except the first one
+				while (breadcrumb.children.length > 1) {
+					breadcrumb.removeChild(breadcrumb.lastChild);
+				}
+
+				// Add new items
+				parts.forEach((part, index) => {
+					const li = document.createElement('li');
+					li.className = index === parts.length - 1 ?
+						'breadcrumb-item text-dark active text-sm' :
+						'breadcrumb-item text-sm';
+					li.textContent = part.charAt(0).toUpperCase() + part.slice(1);
+					if (index === parts.length - 1) {
+						li.setAttribute('aria-current', 'page');
+					}
+					breadcrumb.appendChild(li);
+				});
+
+				// Update current page title
+				currentPage.textContent = parts[parts.length - 1] ?
+					parts[parts.length - 1].charAt(0).toUpperCase() + parts[parts.length - 1].slice(1) :
+					'Dashboard';
+			}
+
+			// Call the function when the page loads
+			document.addEventListener('DOMContentLoaded', updateBreadcrumb);
+
+			// If you're using a single-page application, you might need to call this
+			// function whenever the route changes
+		</script>
 		<div class="navbar-collapse mt-sm-0 me-md-0 me-sm-4 collapse mt-2" id="navbar">
 			<div class="ms-md-auto pe-md-3 d-flex align-items-center">
-				<div class="input-group input-group-outline">
-					<label class="form-label">Type here...</label>
-					<input type="text" class="form-control" />
-				</div>
 			</div>
 			<ul class="navbar-nav justify-content-end">
-				<li class="nav-item d-flex align-items-center">
-					<a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-						<i class="fa fa-user me-sm-1"></i>
-						<span class="d-sm-inline d-none">Sign In</span>
-					</a>
-				</li>
+				@if (auth()->check())
+					<li class="nav-item d-flex align-items-center">
+						<a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+							<i class="fa fa-user me-sm-1"></i>
+							<span class="d-sm-inline d-none"><strong>{{ auth()->user()->email }}</strong></span>
+						</a>
+					</li>
+				@else
+					<li class="nav-item d-flex align-items-center">
+						<a href="{{ route('admin-showLogin') }}" class="nav-link text-body font-weight-bold px-0">
+							<i class="fa fa-user me-sm-1"></i>
+							<span class="d-sm-inline d-none">Sign In</span>
+						</a>
+					</li>
+				@endif
 				<li class="nav-item d-xl-none d-flex align-items-center ps-3">
 					<a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
 						<div class="sidenav-toggler-inner">
@@ -38,86 +79,6 @@
 					<a href="javascript:;" class="nav-link text-body p-0">
 						<i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
 					</a>
-				</li>
-				<li class="nav-item dropdown d-flex align-items-center pe-2">
-					<a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="fa fa-bell cursor-pointer"></i>
-					</a>
-					<ul class="dropdown-menu dropdown-menu-end me-sm-n4 px-2 py-3" aria-labelledby="dropdownMenuButton">
-						<li class="mb-2">
-							<a class="dropdown-item border-radius-md" href="javascript:;">
-								<div class="d-flex py-1">
-									<div class="my-auto">
-										<img src="./assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
-									</div>
-									<div class="d-flex flex-column justify-content-center">
-										<h6 class="font-weight-normal mb-1 text-sm">
-											<span class="font-weight-bold">New message</span>
-											from Laur
-										</h6>
-										<p class="text-secondary mb-0 text-xs">
-											<i class="fa fa-clock me-1"></i>
-											13 minutes ago
-										</p>
-									</div>
-								</div>
-							</a>
-						</li>
-						<li class="mb-2">
-							<a class="dropdown-item border-radius-md" href="javascript:;">
-								<div class="d-flex py-1">
-									<div class="my-auto">
-										<img src="./assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
-									</div>
-									<div class="d-flex flex-column justify-content-center">
-										<h6 class="font-weight-normal mb-1 text-sm">
-											<span class="font-weight-bold">New album</span> by
-											Travis Scott
-										</h6>
-										<p class="text-secondary mb-0 text-xs">
-											<i class="fa fa-clock me-1"></i>
-											1 day
-										</p>
-									</div>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a class="dropdown-item border-radius-md" href="javascript:;">
-								<div class="d-flex py-1">
-									<div class="avatar avatar-sm bg-gradient-secondary my-auto me-3">
-										<svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink">
-											<title>credit-card</title>
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-													<g transform="translate(1716.000000, 291.000000)">
-														<g transform="translate(453.000000, 454.000000)">
-															<path class="color-background"
-																d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-																opacity="0.593633743"></path>
-															<path class="color-background"
-																d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-															</path>
-														</g>
-													</g>
-												</g>
-											</g>
-										</svg>
-									</div>
-									<div class="d-flex flex-column justify-content-center">
-										<h6 class="font-weight-normal mb-1 text-sm">
-											Payment successfully completed
-										</h6>
-										<p class="text-secondary mb-0 text-xs">
-											<i class="fa fa-clock me-1"></i>
-											2 days
-										</p>
-									</div>
-								</div>
-							</a>
-						</li>
-					</ul>
 				</li>
 			</ul>
 		</div>

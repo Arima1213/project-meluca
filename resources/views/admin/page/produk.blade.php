@@ -1,6 +1,7 @@
 @extends('admin.template.templates')
 
 @section('container')
+	@include('admin.template.landingNavbar')
 	<div class="container-fluid py-4">
 		<div class="row">
 			<div class="col-12">
@@ -64,7 +65,7 @@
 										<div class="modal fade" id="EditProductModal{{ $product->id }}" tabindex="-1" role="dialog"
 											aria-labelledby="editModalLabel{{ $product->id }}" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-centered" role="document">
-												<form enctype="multipart/form-data" action="{{ route('update-produk') }}" method="post" class="modal-content">
+												<form enctype="multipart/form-data" action="{{ route('admin-product-update') }}" method="post" class="modal-content">
 													@csrf
 													<input type="hidden" name="id" value="{{ $product->id }}">
 													<div class="modal-header">
@@ -137,7 +138,7 @@
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-														<form action="{{ route('delete-produk') }}" method="post" style="display:inline;">
+														<form action="{{ route('admin-product-delete') }}" method="post" style="display:inline;">
 															@csrf
 															<input type="hidden" name="id" value="{{ $product->id }}">
 															<button type="submit" class="btn bg-gradient-danger">Delete</button>
@@ -155,7 +156,7 @@
 					<!-- Add Product Modal -->
 					<div class="modal fade" id="AddProductModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
-							<form enctype="multipart/form-data" action="{{ route('add-produk') }}" method="post" class="modal-content">
+							<form enctype="multipart/form-data" action="{{ route('admin-product-add') }}" method="post" class="modal-content">
 								@csrf
 								<div class="modal-header">
 									<h5 class="modal-title font-weight-normal" id="addModalLabel">Tambah Produk</h5>

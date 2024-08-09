@@ -24,9 +24,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/login', [authAdminController::class, 'showLogin'])->name('admin-showLogin');
         Route::post('/login', [authAdminController::class, 'login'])->name('admin-login');
         Route::get('/logout', [landingAdminController::class, 'logout'])->name('admin-logout');
-        Route::get('/produk', [productsController::class, 'index'])->name('produk');
-        Route::post('/produk/add', [productsController::class, 'simpan'])->name('add-produk');
-        Route::post('/produk/update', [productsController::class, 'update'])->name('update-produk');
-        Route::post('/produk/delete', [productsController::class, 'destroy'])->name('delete-produk');
+        Route::get('/produk', [productsController::class, 'index'])->name('admin-product');
+        Route::post('/produk/add', [productsController::class, 'simpan'])->name('admin-product-add');
+        Route::post('/produk/update', [productsController::class, 'update'])->name('admin-product-update');
+        Route::post('/produk/delete', [productsController::class, 'destroy'])->name('admin-product-delete');
     });
 });

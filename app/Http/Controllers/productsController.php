@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\ProductImage;
 use Illuminate\Http\Request;
-use App\Models\ProductCategory;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class productsController extends Controller
@@ -16,7 +13,7 @@ class productsController extends Controller
     {
         $products = Product::with('categories', 'images')->get();
         $categories = Category::all();
-        return view('products.index', compact('products', 'categories'));
+        return view('admin.page.produk', compact('products', 'categories'));
     }
 
     public function store(Request $request)
@@ -46,7 +43,7 @@ class productsController extends Controller
             $product->images()->create(['image_url' => $imagePath]);
         }
 
-        return redirect()->route('produk')->with('alert', [
+        return redirect()->route('admin-product')->with('alert', [
             'type' => 'success',
             'title' => 'Berhasil!',
             'message' => 'Produk berhasil ditambahkan.'
@@ -87,7 +84,7 @@ class productsController extends Controller
             $product->images()->create(['image_url' => $imagePath]);
         }
 
-        return redirect()->route('produk')->with('alert', [
+        return redirect()->route('admin-product')->with('alert', [
             'type' => 'success',
             'title' => 'Berhasil!',
             'message' => 'Produk berhasil diperbarui.'
@@ -108,7 +105,7 @@ class productsController extends Controller
         $product->categories()->detach();
         $product->delete();
 
-        return redirect()->route('produk')->with('alert', [
+        return redirect()->route('admin-product')->with('alert', [
             'type' => 'success',
             'title' => 'Berhasil!',
             'message' => 'Produk berhasil dihapus.'
