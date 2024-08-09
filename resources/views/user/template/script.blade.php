@@ -1,9 +1,10 @@
-<script src="./assets/js/core/popper.min.js"></script>
-<script src="./assets/js/core/bootstrap.min.js"></script>
-<script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="./assets/js/material-dashboard.min.js?v=3.0.0"></script>
+<script src="{{ asset('js/core/popper.min.js') }}"></script>
+<script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('js/plugins/smooth-scrollbar.min.js') }}"></script>
+<script src="{{ asset('js/material-dashboard.min.js?v=3.0.0') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
 	@if (Session::has('alert'))
 		Swal.fire({
