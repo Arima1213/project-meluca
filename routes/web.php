@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\authAdminController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
-use App\Http\Controllers\landingAdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\landingController;
 use App\Http\Controllers\productsController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\authAdminController;
+use App\Http\Controllers\landingAdminController;
 
 Route::get('/login', [authController::class, 'showLogin'])->name('showLogin');
 Route::get('/register', [authController::class, 'showRegister'])->name('showRegister');
@@ -23,6 +24,9 @@ Route::post('/admin/login', [authAdminController::class, 'login'])->name('admin-
 Route::get('/admin/logout', [authAdminController::class, 'logout'])->name('admin-logout');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+
     Route::prefix('admin')->group(function () {
         Route::get('/', [landingAdminController::class, 'index'])->name('admin-landing');
         Route::get('/produk', [productsController::class, 'index'])->name('admin-product');

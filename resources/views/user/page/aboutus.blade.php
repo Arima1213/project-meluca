@@ -1,6 +1,8 @@
 @extends('user.template.templates')
 
 @section('container')
+	@include('user.template.landingNavbar')
+
 	<section id="about" class="overflow-hidden py-5">
 		<div class="container">
 			<div class="row justify-content-center">
