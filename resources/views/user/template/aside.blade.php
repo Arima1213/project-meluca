@@ -2,7 +2,6 @@
 	<div class="sidenav-header">
 		<i class="fas fa-times position-absolute d-none d-xl-none end-0 top-0 cursor-pointer p-3 text-white opacity-5" aria-hidden="true" id="iconSidenav"></i>
 		<a class="navbar-brand m-0" href="index" target="_blank">
-			<img src="./assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo" />
 			<span class="font-weight-bold ms-1 text-white">MELUCA</span>
 		</a>
 	</div>
