@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\shopController;
 use App\Http\Controllers\landingController;
 use App\Http\Controllers\productsController;
 use App\Http\Controllers\authAdminController;
@@ -17,7 +18,8 @@ Route::get('/aboutus', [landingController::class, 'aboutus'])->name('aboutus');
 Route::get('/teams', [landingController::class, 'team'])->name('team');
 Route::get('/feedback', [landingController::class, 'feedback'])->name('feedback');
 Route::get('/logout', [authController::class, 'logout'])->name('logout');
-Route::get('/transactions', [productsController::class, 'index'])->name('transactions');
+Route::get('/products', [shopController::class, 'index'])->name('products');
+// Route::get('/transactions', [productsController::class, 'index'])->name('transactions');
 
 Route::get('/admin/login', [authAdminController::class, 'showLogin'])->name('admin-showLogin');
 Route::post('/admin/login', [authAdminController::class, 'login'])->name('admin-login');
