@@ -10,8 +10,8 @@ class landingAdminController extends Controller
     {
         return view('admin.page.landingPage');
     }
-    public function about()
+    public function produk()
     {
-        return view('page.aboutus');
+        return view('admin.page.produk');
     }
 }

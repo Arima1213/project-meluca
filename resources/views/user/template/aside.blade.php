@@ -64,9 +64,11 @@
 		</ul>
 
 	</div>
-	<div class="sidenav-footer position-absolute w-100 bottom-0">
+	<form action="{{ route('logout') }}" method="get" class="sidenav-footer position-absolute w-100 bottom-0">
+		@csrf
 		<div class="mx-3">
-			<a class="btn bg-gradient-primary w-100 mt-4" href="logout" type="button">Logout</a>
+			<button class="btn bg-gradient-primary w-100 mt-4" type="submit">Logout</button>
 		</div>
+	</form>
 	</div>
 </aside>

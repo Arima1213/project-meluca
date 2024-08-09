@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-	@include('template.header')
+	@include('admin.template.header')
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
 	{{-- aside start --}}
-	@include('template.aside')
+	@include('admin.template.aside')
 	{{-- aside end --}}
 	<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
 		{{-- main content --}}
@@ -15,10 +15,10 @@
 		{{-- end main content --}}
 	</main>
 	{{-- setting start --}}
-	@include('template.setting')
+	@include('admin.template.setting')
 	{{-- setting end --}}
 	{{-- script start --}}
-	@include('template.script')
+	@include('admin.template.script')
 	{{-- script end --}}
 </body>
 

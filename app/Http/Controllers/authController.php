@@ -106,4 +106,15 @@ class authController extends Controller
             return back()->withInput();
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        session()->flash('alert', [
+            'type' => 'success',
+            'title' => 'Logout Successful',
+            'message' => 'You have been logged out!'
+        ]);
+        return redirect()->route('showLogin');
+    }
 }
