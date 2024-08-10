@@ -140,7 +140,7 @@
 										</h5>
 									</a>
 									<p>
-										Teh Celup yang praktis dan mudah diseduh. Box Mini ini berisi satu kantong teh celup, cocok untuk sekali seduh dan mudah dibawa kemana-mana.
+										Box Mini ini berisi satu kantong teh celup, cocok untuk sekali seduh dan mudah dibawa kemana-mana.
 									</p>
 								</div>
 							</div>
@@ -159,14 +159,13 @@
 										</h5>
 									</a>
 									<p>
-										Teh Celup yang praktis dan mudah diseduh. Box Besar ini berisi 10 kantong teh celup, ideal untuk kebutuhan teh sehari-hari atau untuk acara
+										Box Besar ini berisi 10 kantong teh celup, ideal untuk kebutuhan teh sehari-hari atau untuk acara
 										keluarga.
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>

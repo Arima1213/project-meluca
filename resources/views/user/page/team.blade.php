@@ -4,6 +4,27 @@
 	@include('user.template.landingNavbar')
 
 	<div class="container-fluid py-4">
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<div class="card">
+					<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
+						<a class="d-block blur-shadow-image">
+							<img src="{{ asset('img/botol.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+						</a>
+					</div>
+					<div class="card-body px-4 pt-2">
+						<a href="javascript:;">
+							<h5 class="font-weight-normal mt-3">
+								Teh Kemasan Botol
+							</h5>
+						</a>
+						<p>
+							Teh siap saji yang praktis dan mudah dibawa kemana-mana. Dengan kemasan botol yang kokoh dan aman.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="card card-body mb-5">
 			<div class="row gx-4 mb-2">
 				<div class="col-auto">
