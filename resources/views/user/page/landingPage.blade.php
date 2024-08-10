@@ -8,8 +8,7 @@
 			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner mb-4">
 					<div class="carousel-item active">
-						<div class="page-header min-vh-75 border-radius-xl m-3"
-							style="background-image: url('https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-3-min.jpg');">
+						<div class="page-header min-vh-75 border-radius-xl m-3" style="background-image: url('{{ asset('img/carousel1.png') }}');">
 							<span class="mask bg-gradient-dark"></span>
 							<div class="container">
 								<div class="row">
@@ -26,8 +25,7 @@
 						</div>
 					</div>
 					<div class="carousel-item">
-						<div class="page-header min-vh-75 border-radius-xl m-3"
-							style="background-image: url('https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg');">
+						<div class="page-header min-vh-75 border-radius-xl m-3" style="background-image: url('{{ asset('img/carousel2.png') }}');">
 							<span class="mask bg-gradient-dark"></span>
 							<div class="container">
 								<div class="row">
@@ -78,33 +76,25 @@
 					<div class="row">
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="card bg-dark mb-1 border-0 text-white">
-								<img class="card-img"
-									src="https://images.unsplash.com/photo-1560157368-946d9c8f7cb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
-									alt="Card image">
+								<img class="card-img" src="{{ asset('img/teh1.jpg') }}" alt="Card image">
 							</div>
 							<p>Dari biji-bijian</p>
 						</div>
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="card bg-dark mb-1 border-0 text-white">
-								<img class="card-img"
-									src="https://images.unsplash.com/photo-1560157368-946d9c8f7cb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
-									alt="Card image">
+								<img class="card-img" src="{{ asset('img/teh2.jpg') }}" alt="Card image">
 							</div>
 							<p>100% bahan alami</p>
 						</div>
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="card bg-dark mb-1 border-0 text-white">
-								<img class="card-img"
-									src="https://images.unsplash.com/photo-1560157368-946d9c8f7cb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
-									alt="Card image">
+								<img class="card-img" src="{{ asset('img/teh3.jpg') }}" alt="Card image">
 							</div>
 							<p>Tanpa pemanis buatan</p>
 						</div>
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="card bg-dark mb-1 border-0 text-white">
-								<img class="card-img"
-									src="https://images.unsplash.com/photo-1560157368-946d9c8f7cb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
-									alt="Card image">
+								<img class="card-img" src="{{ asset('img/teh4.jpg') }}" alt="Card image">
 							</div>
 							<p>Antioksidan Tinggi</p>
 						</div>
