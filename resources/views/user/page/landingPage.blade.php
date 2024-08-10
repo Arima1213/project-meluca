@@ -107,12 +107,11 @@
 				<div class="p-3">
 					<h6 class="mb-5 text-center">Produk Teh Meluca</h6>
 					<div class="row">
-						<div class="col-12 col-md-6">
+						<div class="col-12 col-md-4">
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg" alt="img-blur-shadow"
-											class="img-fluid border-radius-lg shadow">
+										<img src="{{ asset('img/botol.jpg') }}" alt="img-blur-shadow" class="img-fluid border-radius-lg shadow">
 									</a>
 									<div class="colored-shadow"
 										style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
@@ -130,12 +129,33 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-12 col-md-6">
+						<div class="col-12 col-md-4">
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg" alt="img-blur-shadow"
-											class="img-fluid border-radius-lg shadow">
+										<img src="{{ asset('img/boxkecil.jpg') }}" alt="img-blur-shadow" class="img-fluid border-radius-lg shadow">
+									</a>
+									<div class="colored-shadow"
+										style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
+									</div>
+								</div>
+								<div class="card-body px-4 pt-2">
+									<a href="javascript:;">
+										<h5 class="font-weight-normal mt-3">
+											Teh Celup
+										</h5>
+									</a>
+									<p>
+										Teh Celup yang praktis dan mudah diseduh. Dengan kemasan yang ramah lingkungan dan mudah dibawa kemana-mana
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card">
+								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
+									<a class="d-block blur-shadow-image">
+										<img src="{{ asset('img/boxbesar.jpg') }}" alt="img-blur-shadow" class="img-fluid border-radius-lg shadow">
 									</a>
 									<div class="colored-shadow"
 										style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
