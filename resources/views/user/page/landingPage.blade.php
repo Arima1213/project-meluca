@@ -111,20 +111,17 @@
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="{{ asset('img/botol.jpg') }}" alt="img-blur-shadow" class="img-fluid border-radius-lg shadow">
+										<img src="{{ asset('img/botol.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
 									</a>
-									<div class="colored-shadow"
-										style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
-									</div>
 								</div>
 								<div class="card-body px-4 pt-2">
 									<a href="javascript:;">
 										<h5 class="font-weight-normal mt-3">
-											Teh kemasan Botol
+											Teh Kemasan Botol
 										</h5>
 									</a>
 									<p>
-										Teh Siap saji yang praktis dan mudah dibawa kemana-mana. Dengan kemasan botol yang kokoh dan am
+										Teh siap saji yang praktis dan mudah dibawa kemana-mana. Dengan kemasan botol yang kokoh dan aman.
 									</p>
 								</div>
 							</div>
@@ -133,20 +130,17 @@
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="{{ asset('img/boxkecil.jpg') }}" alt="img-blur-shadow" class="img-fluid border-radius-lg shadow">
+										<img src="{{ asset('img/boxkecil.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
 									</a>
-									<div class="colored-shadow"
-										style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
-									</div>
 								</div>
 								<div class="card-body px-4 pt-2">
 									<a href="javascript:;">
 										<h5 class="font-weight-normal mt-3">
-											Teh Celup
+											Box Mini
 										</h5>
 									</a>
 									<p>
-										Teh Celup yang praktis dan mudah diseduh. Dengan kemasan yang ramah lingkungan dan mudah dibawa kemana-mana
+										Teh Celup yang praktis dan mudah diseduh. Box Mini ini berisi satu kantong teh celup, cocok untuk sekali seduh dan mudah dibawa kemana-mana.
 									</p>
 								</div>
 							</div>
@@ -155,25 +149,24 @@
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="{{ asset('img/boxbesar.jpg') }}" alt="img-blur-shadow" class="img-fluid border-radius-lg shadow">
+										<img src="{{ asset('img/boxbesar.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
 									</a>
-									<div class="colored-shadow"
-										style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
-									</div>
 								</div>
 								<div class="card-body px-4 pt-2">
 									<a href="javascript:;">
 										<h5 class="font-weight-normal mt-3">
-											Teh Celup
+											Box Besar
 										</h5>
 									</a>
 									<p>
-										Teh Celup yang praktis dan mudah diseduh. Dengan kemasan yang ramah lingkungan dan mudah dibawa kemana-mana
+										Teh Celup yang praktis dan mudah diseduh. Box Besar ini berisi 10 kantong teh celup, ideal untuk kebutuhan teh sehari-hari atau untuk acara
+										keluarga.
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
