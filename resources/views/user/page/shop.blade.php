@@ -35,7 +35,7 @@
 										<a href="{{ route('products', ['category' => $category->id]) }}">{{ $category->name }}</a>
 									@endforeach
 								</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
+								<a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View Details</a>
 							</div>
 						</div>
 					</div>

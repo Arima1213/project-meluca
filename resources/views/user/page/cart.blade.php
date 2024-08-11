@@ -24,7 +24,7 @@
 			</div>
 			<div class="row">
 				@if ($cart)
-					@foreach ($cart->cartItems as $item)
+					@foreach ($cartItems as $item)
 						<div class="card card-plain h-100 mb-4">
 							<div class="card-header p-3 pb-0">
 								<div class="row">
