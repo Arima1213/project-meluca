@@ -34,7 +34,8 @@
 												<span class="font-weight-bold text-xs">{{ $product->product_name }}</span>
 											</td>
 											<td class="align-middle text-sm">
-												<span class="font-weight-bold text-xs">{{ $product->product_description }}</span>
+												<span class="font-weight-bold text-xs">{{ Str::limit($product->product_description, 30) }}</span>
+											</td>
 											</td>
 											<td class="align-middle text-sm">
 												<span class="font-weight-bold text-xs">{{ $product->price }}</span>
