@@ -9,38 +9,82 @@ class categoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::withCount('products')->get();
-        return view('admin.page.categories', compact('categories'));
+        try {
+            $categories = Category::withCount('products')->get();
+            return view('admin.page.categories', compact('categories'));
+        } catch (\Exception $e) {
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'error',
+                'title' => 'Kesalahan!',
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ]);
+        }
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'nullable|string',
+            ]);
 
-        Category::create($request->only('name', 'description'));
+            Category::create($request->only('name', 'description'));
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil ditambahkan.');
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' => 'Kategori berhasil ditambahkan.'
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'error',
+                'title' => 'Kesalahan!',
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ]);
+        }
     }
 
     public function update(Request $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'nullable|string',
+            ]);
 
-        $category->update($request->only('name', 'description'));
+            $category->update($request->only('name', 'description'));
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' => 'Kategori berhasil diperbarui.'
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'error',
+                'title' => 'Kesalahan!',
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ]);
+        }
     }
 
     public function destroy(Category $category)
     {
-        $category->delete();
+        try {
+            $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' => 'Kategori berhasil dihapus.'
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->route('categories.index')->with('alert', [
+                'type' => 'error',
+                'title' => 'Kesalahan!',
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ]);
+        }
     }
 }
