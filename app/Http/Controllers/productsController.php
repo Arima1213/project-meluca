@@ -14,7 +14,7 @@ class productsController extends Controller
         $categories = Category::all();
 
         if ($categories->isEmpty()) {
-            return redirect()->back()->with('alert', [
+            return redirect()->route('categories.index')->with('alert', [
                 'type' => 'warning',
                 'title' => 'Peringatan!',
                 'message' => 'Anda perlu membuat kategori terlebih dahulu.'

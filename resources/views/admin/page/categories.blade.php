@@ -53,7 +53,7 @@
 	<!-- Add Category Modal -->
 	<div class="modal fade" id="AddCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
-			<form action="{{ route('admin.categories.store') }}" method="post" class="modal-content">
+			<form action="{{ route('categories.store') }}" method="post" class="modal-content">
 				@csrf
 				<div class="modal-header">
 					<h5 class="modal-title" id="addCategoryModalLabel">Tambah Kategori</h5>
@@ -82,7 +82,7 @@
 		<div class="modal fade" id="EditCategoryModal{{ $category->id }}" tabindex="-1" aria-labelledby="editCategoryModalLabel{{ $category->id }}"
 			aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
-				<form action="{{ route('admin.categories.update', $category) }}" method="post" class="modal-content">
+				<form action="{{ route('categories.update', $category) }}" method="post" class="modal-content">
 					@csrf
 					@method('PUT')
 					<div class="modal-header">
@@ -111,7 +111,7 @@
 		<div class="modal fade" id="DeleteCategoryModal{{ $category->id }}" tabindex="-1"
 			aria-labelledby="deleteCategoryModalLabel{{ $category->id }}" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
-				<form action="{{ route('admin.categories.destroy', $category) }}" method="post" class="modal-content">
+				<form action="{{ route('categories.destroy', $category) }}" method="post" class="modal-content">
 					@csrf
 					@method('DELETE')
 					<div class="modal-header">
