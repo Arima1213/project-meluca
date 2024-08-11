@@ -36,6 +36,14 @@
 					<span class="nav-link-text ms-1">Transactions</span>
 				</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link <?= $currentUrlSlug == 'categories' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('categories.index') }}">
+					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
+						<i class="fas fa-money-check-alt opacity-10"></i>
+					</div>
+					<span class="nav-link-text ms-1">Categories</span>
+				</a>
+			</li>
 		</ul>
 
 	</div>
