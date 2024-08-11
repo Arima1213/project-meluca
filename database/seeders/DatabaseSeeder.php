@@ -13,11 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Memanggil UserRolesSeeder untuk mengisi tabel user_roles
+        $this->call(UserRolesSeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Menggunakan factory untuk membuat 10 user
+        User::factory(10)->create();
     }
 }

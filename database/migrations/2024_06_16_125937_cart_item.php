@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('shopping_cart_id')->constrained('shopping_carts')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->integer('quantity')->unsigned();
+            $table->boolean('is_checked_out')->default(false);
             $table->timestamps();
         });
     }
