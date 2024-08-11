@@ -66,20 +66,6 @@
 						</a>
 					</li>
 				@endif
-				<li class="nav-item d-xl-none d-flex align-items-center ps-3">
-					<a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-						<div class="sidenav-toggler-inner">
-							<i class="sidenav-toggler-line"></i>
-							<i class="sidenav-toggler-line"></i>
-							<i class="sidenav-toggler-line"></i>
-						</div>
-					</a>
-				</li>
-				<li class="nav-item d-flex align-items-center px-3">
-					<a href="javascript:;" class="nav-link text-body p-0">
-						<i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-					</a>
-				</li>
 			</ul>
 		</div>
 	</div>

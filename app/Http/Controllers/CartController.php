@@ -33,6 +33,10 @@ class CartController extends Controller
             $cartItem->increment('quantity');
         }
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('alert', [
+            'type' => 'success',
+            'title' => 'Success!',
+            'message' => 'Product added to cart successfully!'
+        ]);
     }
 }

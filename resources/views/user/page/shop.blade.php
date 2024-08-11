@@ -20,9 +20,10 @@
 
 			<div class="row">
 				@foreach ($products as $product)
-					<div class="col-6 col-md-4 col-lg-3 mb-4 px-3">
+					<div class="col-6 col-md-4 mb-4 px-3">
 						<div class="card">
-							<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" class="card-img-top square-img" alt="{{ $product->product_name }}">
+							<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" class="card-img-top square-img" alt="{{ $product->product_name }}"
+								style="height: 200px; object-fit: cover;">
 							<div class="card-body">
 								<h5 class="card-title">{{ $product->product_name }}</h5>
 								<p class="card-text mb-4">{{ $product->product_description }}</p>

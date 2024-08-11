@@ -6,14 +6,11 @@
 	<section class="overflow-hidden">
 		<div class="container mt-5">
 			<div class="row">
-				<div class="col-md-6">
-					@if ($product->images->isNotEmpty())
-						<img src="{{ $product->images->first()->image_url }}" class="img-fluid" alt="{{ $product->product_name }}">
-					@else
-						<img src="https://source.unsplash.com/random/600x600/?tea" class="img-fluid" alt="Default Image">
-					@endif
+				<div class="col-md-4 d-flex align-items-stretch">
+					<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" class="img-fluid w-100 h-75" alt="{{ $product->product_name }}"
+						style="object-fit: cover; ">
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<h1>{{ $product->product_name }}</h1>
 					<p>{{ $product->product_description }}</p>
 					<p>Weight: {{ $product->product_weight }}g</p>
@@ -30,10 +27,10 @@
 							@csrf
 							<button type="submit" class="btn btn-primary mr-2">Add to Cart</button>
 						</form>
-						<form action="{{ route('order.create', $product->id) }}" method="GET">
-							@csrf
-							<button type="submit" class="btn btn-success">Beli</button>
-						</form>
+						{{-- <form action="{{ route('order.create', $product->id) }}" method="GET">
+                            @csrf
+                            <button type="submit" class="btn btn-success">Beli</button>
+                        </form> --}}
 					</div>
 				</div>
 			</div>
