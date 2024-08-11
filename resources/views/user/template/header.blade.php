@@ -11,9 +11,7 @@
 <link href="{{ asset('css/nucleo-icons.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/nucleo-svg.css') }}" rel="stylesheet" />
 <!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-	integrity="sha512-Fo3rlrZj/k7ujTnHg4C+XH2s4qN8Zc+Qz1UX10+W9dT1oHR1Z59qZdV7s5FRV68llYeF9KmTLYtqQPOc4P2cUQ==" crossorigin="anonymous"
-	referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 <!-- CSS Files -->
