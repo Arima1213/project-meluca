@@ -21,7 +21,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
 Route::get('/products', [shopController::class, 'index'])->name('products');
 Route::get('/products/{product}', [shopController::class, 'show'])->name('product.show');
 Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
-Route::get('/order/create/{product}', [OrderController::class, 'create'])->name('order.create');
+// Route::get('/order/create/{product}', [OrderController::class, 'create'])->name('order.create');
 // Route::get('/transactions', [productsController::class, 'index'])->name('transactions');
 
 Route::get('/admin/login', [authAdminController::class, 'showLogin'])->name('admin-showLogin');

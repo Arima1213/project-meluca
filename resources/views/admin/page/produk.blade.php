@@ -111,10 +111,13 @@
 					</div>
 					<div class="input-group input-group-dynamic mb-4">
 						<span class="input-group-text">Kategori</span>
-						<select name="categories[]" class="form-control" multiple required>
+						@if ($categories->isEmpty())
+							<option disabled selected>Tidak ada kategori</option>
+						@else
 							@foreach ($categories as $category)
 								<option value="{{ $category->id }}">{{ $category->name }}</option>
 							@endforeach
+						@endif
 						</select>
 					</div>
 				</div>

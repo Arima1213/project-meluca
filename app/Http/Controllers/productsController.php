@@ -11,6 +11,15 @@ class productsController extends Controller
 {
     public function index()
     {
+        $categories = Category::all();
+
+        if ($categories->isEmpty()) {
+            return redirect()->back()->with('alert', [
+                'type' => 'warning',
+                'title' => 'Peringatan!',
+                'message' => 'Anda perlu membuat kategori terlebih dahulu.'
+            ]);
+        }
         $products = Product::with('categories', 'images')->get();
         $categories = Category::all();
         return view('admin.page.produk', compact('products', 'categories'));
