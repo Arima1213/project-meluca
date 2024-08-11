@@ -111,7 +111,7 @@
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="{{ asset('img/botol.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+										<img src="{{ asset('img/botol.jpg') }}" alt="img-blur-shadow" class="h-75 img-fluid border-radius-lg img-fixed-height shadow">
 									</a>
 								</div>
 								<div class="card-body px-4 pt-2">
@@ -130,7 +130,7 @@
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="{{ asset('img/boxkecil.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+										<img src="{{ asset('img/boxkecil.jpg') }}" alt="img-blur-shadow" class="h-75 img-fluid border-radius-lg img-fixed-height shadow">
 									</a>
 								</div>
 								<div class="card-body px-4 pt-2">
@@ -149,7 +149,7 @@
 							<div class="card">
 								<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 									<a class="d-block blur-shadow-image">
-										<img src="{{ asset('img/boxbesar.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+										<img src="{{ asset('img/boxbesar.jpg') }}" alt="img-blur-shadow" class="h-75 img-fluid border-radius-lg img-fixed-height shadow">
 									</a>
 								</div>
 								<div class="card-body px-4 pt-2">
