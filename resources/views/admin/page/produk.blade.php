@@ -109,15 +109,16 @@
 						<span class="input-group-text">Stok</span>
 						<input type="number" name="stock" class="form-control" placeholder="Stok Produk" required>
 					</div>
+					<span>Kategori (pilih satu atau lebih)</span>
 					<div class="input-group input-group-dynamic mb-4">
-						<span class="input-group-text">Kategori</span>
-						@if ($categories->isEmpty())
-							<option disabled selected>Tidak ada kategori</option>
-						@else
-							@foreach ($categories as $category)
-								<option value="{{ $category->id }}">{{ $category->name }}</option>
-							@endforeach
-						@endif
+						<select name="categories[]" class="form-control" multiple>
+							@if ($categories->isEmpty())
+								<option disabled selected>Tidak ada kategori</option>
+							@else
+								@foreach ($categories as $category)
+									<option value="{{ $category->id }}">{{ $category->name }}</option>
+								@endforeach
+							@endif
 						</select>
 					</div>
 				</div>
