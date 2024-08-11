@@ -9,6 +9,7 @@ use App\Http\Controllers\productsController;
 use App\Http\Controllers\authAdminController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\landingAdminController;
+use App\Http\Controllers\transactionController;
 
 Route::get('/login', [authController::class, 'showLogin'])->name('showLogin');
 Route::get('/register', [authController::class, 'showRegister'])->name('showRegister');
@@ -23,13 +24,13 @@ Route::get('/products', [shopController::class, 'index'])->name('products');
 Route::get('/products/{product}', [shopController::class, 'show'])->name('product.show');
 Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
 // Route::get('/order/create/{product}', [OrderController::class, 'create'])->name('order.create');
-// Route::get('/transactions', [productsController::class, 'index'])->name('transactions');
 
 Route::get('/admin/login', [authAdminController::class, 'showLogin'])->name('admin-showLogin');
 Route::post('/admin/login', [authAdminController::class, 'login'])->name('admin-login');
 Route::get('/admin/logout', [authAdminController::class, 'logout'])->name('admin-logout');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/transactions', [transactionController::class, 'index'])->name('transactions');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
 
