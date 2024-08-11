@@ -36,7 +36,6 @@
 											<td class="align-middle text-sm">
 												<span class="font-weight-bold text-xs">{{ Str::limit($product->product_description, 30) }}</span>
 											</td>
-											</td>
 											<td class="align-middle text-sm">
 												<span class="font-weight-bold text-xs">{{ $product->price }}</span>
 											</td>
@@ -56,7 +55,12 @@
 												</span>
 											</td>
 											<td class="align-middle text-sm">
-												<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" alt="Product Image">
+												@if ($product->images->isNotEmpty())
+													<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" alt="Product Image"
+														style="max-width: 100px; max-height: 100px;">
+												@else
+													<p>No image available</p>
+												@endif
 											</td>
 											<td class="align-middle text-sm">
 												<button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#EditProductModal{{ $product->id }}">Edit</button>
