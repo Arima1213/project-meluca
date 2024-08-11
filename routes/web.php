@@ -7,6 +7,7 @@ use App\Http\Controllers\shopController;
 use App\Http\Controllers\landingController;
 use App\Http\Controllers\productsController;
 use App\Http\Controllers\authAdminController;
+use App\Http\Controllers\categoryController;
 use App\Http\Controllers\landingAdminController;
 
 Route::get('/login', [authController::class, 'showLogin'])->name('showLogin');
@@ -38,5 +39,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/produk/add', [productsController::class, 'store'])->name('admin-product-add');
         Route::post('/produk/update', [productsController::class, 'update'])->name('admin-product-update');
         Route::post('/produk/delete', [productsController::class, 'destroy'])->name('admin-product-delete');
+        Route::resource('/categories', categoryController::class);
     });
 });
