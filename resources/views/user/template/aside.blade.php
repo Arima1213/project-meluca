@@ -29,7 +29,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link <?= $currentUrlSlug == 'transaction' ? 'active bg-gradient-primary' : '' ?> text-white" href="./transaction">
+				<a class="nav-link <?= $currentUrlSlug == 'transaction' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('transactions') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
 						<i class="fas fa-money-check-alt opacity-10"></i>
 					</div>
