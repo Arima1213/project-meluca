@@ -29,11 +29,9 @@
 						</div>
 						<div class="card-body p-3 pt-0">
 							<p class="text-sm">
-								Sebagai Chief Marketing Officer (CMO), tanggung jawab utama saya adalah mengembangkan dan mengimplementasikan strategi pemasaran untuk
-								mempromosikan produk dan layanan kami. Saya mengawasi tim pemasaran dan memastikan pesan merek kami mencapai target audiens dengan efektif.
-								Selain itu, saya menganalisis tren pasar, melakukan riset pasar, dan mengidentifikasi peluang baru untuk pertumbuhan bisnis. Saya juga bekerja
-								sama dengan departemen lain untuk menyelaraskan upaya pemasaran dengan tujuan bisnis secara keseluruhan dan meningkatkan keterlibatan serta
-								loyalitas pelanggan.
+								Saya, Ari Mahendra Fauzi, sebagai Chief Marketing Officer (CMO), bertanggung jawab mengembangkan strategi pemasaran, memimpin tim pemasaran,
+								menganalisis tren pasar, dan mencari peluang bisnis baru. Saya juga berkolaborasi dengan departemen lain untuk menyelaraskan pemasaran dengan
+								tujuan bisnis serta meningkatkan keterlibatan dan loyalitas pelanggan.
 							</p>
 						</div>
 					</div>
