@@ -23,7 +23,7 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'produk' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('admin-product') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-money-check-alt opacity-10"></i>
+						<i class="fas fa-box opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Manajemen Produk</span>
 				</a>
@@ -31,7 +31,7 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'transaction' ? 'active bg-gradient-primary' : '' ?> text-white" href="./transaction">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-money-check-alt opacity-10"></i>
+						<i class="fas fa-receipt opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Transactions</span>
 				</a>
@@ -39,13 +39,12 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'categories' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('categories.index') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-money-check-alt opacity-10"></i>
+						<i class="fas fa-tags opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Categories</span>
 				</a>
 			</li>
 		</ul>
-
 	</div>
 	<div class="sidenav-footer position-absolute w-100 bottom-0">
 		<div class="mx-3">

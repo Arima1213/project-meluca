@@ -1,3 +1,7 @@
+<?php
+// Cek apakah pengguna sudah login
+$isLoggedIn = Auth::check();
+?>
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl fixed-start bg-gradient-dark my-3 ms-3 border-0" id="sidenav-main">
 	<div class="sidenav-header">
 		<i class="fas fa-times position-absolute d-none d-xl-none end-0 top-0 cursor-pointer p-3 text-white opacity-5" aria-hidden="true" id="iconSidenav"></i>
@@ -15,7 +19,7 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == '' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('landing') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-tachometer-alt opacity-10"></i>
+						<i class="fas fa-home opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Landing</span>
 				</a>
@@ -23,7 +27,7 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'products' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('products') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-money-check-alt opacity-10"></i>
+						<i class="fas fa-box opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Products</span>
 				</a>
@@ -31,7 +35,7 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'transaction' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('transactions') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-money-check-alt opacity-10"></i>
+						<i class="fas fa-receipt opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Transactions</span>
 				</a>
@@ -47,7 +51,7 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'teams' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('team') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-comments opacity-10"></i>
+						<i class="fas fa-users opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Tim Kami</span>
 				</a>
@@ -55,19 +59,23 @@
 			<li class="nav-item">
 				<a class="nav-link <?= $currentUrlSlug == 'aboutus' ? 'active bg-gradient-primary' : '' ?> text-white" href="{{ route('aboutus') }}">
 					<div class="d-flex align-items-center justify-content-center me-2 text-center text-white">
-						<i class="fas fa-comments opacity-10"></i>
+						<i class="fas fa-info-circle opacity-10"></i>
 					</div>
 					<span class="nav-link-text ms-1">Tentang Kami</span>
 				</a>
 			</li>
 		</ul>
-
 	</div>
-	<form action="{{ route('logout') }}" method="get" class="sidenav-footer position-absolute w-100 bottom-0">
-		@csrf
+	<div class="sidenav-footer position-absolute w-100 bottom-0">
 		<div class="mx-3">
-			<button class="btn bg-gradient-primary w-100 mt-4" type="submit">Logout</button>
+			<?php if ($isLoggedIn): ?>
+			<form action="{{ route('logout') }}" method="get">
+				@csrf
+				<button class="btn bg-gradient-primary w-100 mt-4" type="submit">Logout</button>
+			</form>
+			<?php else: ?>
+			<a class="btn bg-gradient-primary w-100 mt-4" href="{{ route('login') }}">Login</a>
+			<?php endif; ?>
 		</div>
-	</form>
 	</div>
 </aside>
