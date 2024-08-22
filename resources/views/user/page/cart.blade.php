@@ -2,57 +2,60 @@
 
 @section('container')
 	@include('user.template.landingNavbar')
-
 	<div class="container-fluid py-4">
-		<div class="card card-body mb-5">
-			<div class="row gx-4 mb-2">
-				<div class="col-auto">
-					<div class="avatar avatar-xl position-relative">
-						<img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-					</div>
-				</div>
-				<div class="col-auto my-auto">
-					<div class="h-100">
-						<h5 class="mb-1">
-							{{ Auth::user()->name }}
-						</h5>
-						<p class="font-weight-normal mb-0 text-sm">
-							User
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				@if ($cartEmpty)
-					<p>Your cart is empty.</p>
-				@else
-					@foreach ($cartItems as $item)
-						<div class="card card-plain h-100 mb-4">
-							<div class="card-header p-3 pb-0">
-								<div class="row">
-									<div class="col-md-8 d-flex align-items-center">
-										<h6 class="mb-0">Product Information</h6>
-									</div>
-								</div>
-							</div>
-							<div class="card-body p-3">
-								<div class="row">
-									<div class="col-12 col-md-5">
-										<img src="{{ asset('storage/products/' . $item->product->image_url) }}" alt="{{ $item->product->name }}" class="img-fluid">
-									</div>
-									<div class="col-12 col-md-7">
-										<h5>{{ $item->product->name }}</h5>
-										<p class="text-sm">Price: ${{ number_format($item->product->price, 2) }}</p>
-										<p class="text-sm">Quantity: {{ $item->quantity }}</p>
-										<p class="text-sm">Total: ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
-									</div>
-								</div>
-							</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="card my-4">
+					<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
+						<div class="bg-gradient-primary shadow-primary border-radius-lg pb-3 pt-4">
+							<h6 class="text-capitalize ps-3 text-white">Shopping Cart</h6>
 						</div>
-					@endforeach
-				@endif
+					</div>
+					<div class="card-body">
+						@if ($cartEmpty)
+							<p>Your cart is empty.</p>
+						@else
+							@php
+								$total = 0;
+							@endphp
+							@foreach ($cartItems as $item)
+								<div class="row">
+									<p class="col text-bold">{{ $item->product->product_name }}</p>
+									<p class="col">Price: ${{ number_format($item->product->price, 2) }}</p>
+									<p class="col">Quantity: {{ $item->quantity }}</p>
+									<p class="col">Total: ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
+									@php
+										$total += $item->product->price * $item->quantity;
+									@endphp
+								</div>
+							@endforeach
+
+							<!-- Display total amount -->
+							<div class="row mt-4">
+								<div class="col text-end">
+									<h5>Total Amount: $<span id="total-amount">{{ number_format($total, 2) }}</span></h5>
+								</div>
+							</div>
+						@endif
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Script to dynamically calculate total amount using JS -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			let total = 0;
+
+			// Loop through all total elements and sum them up
+			document.querySelectorAll('.row p:last-child').forEach(function(item) {
+				let itemTotal = parseFloat(item.textContent.replace('Total: $', '').replace(',', ''));
+				total += itemTotal;
+			});
+
+			// Display the total amount
+			document.getElementById('total-amount').textContent = total.toFixed(2);
+		});
+	</script>
 @endsection
