@@ -6,7 +6,7 @@
 			</div>
 			<ul class="navbar-nav justify-content-end">
 				@if (auth()->check())
-					<li class="nav-item d-flex align-items-center">
+					<li class="nav-item d-flex align-items-center px-5">
 						<a href="{{ route('cart.index') }}" class="nav-link text-body font-weight-bold position-relative px-0">
 							<i class="fa fa-shopping-cart me-sm-1"></i>
 							<span class="badge bg-danger position-absolute start-100 translate-middle badge-rounded-pill top-0" id="cartItemCount"></span>
