@@ -20,6 +20,14 @@ class CartController extends Controller
 
     public function add(Product $product)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('alert', [
+                'type' => 'warning',
+                'title' => 'Warning!',
+                'message' => 'Please login to add products to your cart.'
+            ]);
+        }
+
         $cartItem = CartItem::firstOrCreate(
             [
                 'product_id' => $product->id,
