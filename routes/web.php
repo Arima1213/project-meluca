@@ -23,6 +23,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
 Route::get('/products', [shopController::class, 'index'])->name('products');
 Route::get('/products/{product}', [shopController::class, 'show'])->name('product.show');
 Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/count', [CartController::class, 'count'])->name('cart.count');
 // Route::get('/order/create/{product}', [OrderController::class, 'create'])->name('order.create');
 
 Route::get('/admin/login', [authAdminController::class, 'showLogin'])->name('admin-showLogin');
@@ -40,9 +41,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/produk/add', [productsController::class, 'store'])->name('admin-product-add');
         Route::post('/produk/update', [productsController::class, 'update'])->name('admin-product-update');
         Route::post('/produk/delete', [productsController::class, 'destroy'])->name('admin-product-delete');
-        Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-        Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-        Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
-        Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+        Route::get('/categories', [categoryController::class, 'index'])->name('categories.index');
+        Route::post('/categories', [categoryController::class, 'store'])->name('categories.store');
+        Route::put('/categories/{category}', [categoryController::class, 'update'])->name('categories.update');
+        Route::delete('/categories/{category}', [categoryController::class, 'destroy'])->name('categories.destroy');
     });
 });

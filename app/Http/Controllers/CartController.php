@@ -47,4 +47,17 @@ class CartController extends Controller
             'message' => 'Product added to cart successfully!'
         ]);
     }
+
+    public function count()
+    {
+        $count = 0;
+
+        if (auth()->check()) {
+            $count = CartItem::where('user_id', auth()->id())
+                ->where('is_checked_out', false)
+                ->sum('quantity');
+        }
+
+        return response()->json(['count' => $count]);
+    }
 }
