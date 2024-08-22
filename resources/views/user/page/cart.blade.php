@@ -22,8 +22,11 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="row">
-				@if ($cart)
+				@if ($cartEmpty)
+					<p>Your cart is empty.</p>
+				@else
 					@foreach ($cartItems as $item)
 						<div class="card card-plain h-100 mb-4">
 							<div class="card-header p-3 pb-0">
@@ -40,16 +43,14 @@
 									</div>
 									<div class="col-12 col-md-7">
 										<h5>{{ $item->product->name }}</h5>
-										<p class="text-sm">Price: ${{ $item->product->price }}</p>
+										<p class="text-sm">Price: ${{ number_format($item->product->price, 2) }}</p>
 										<p class="text-sm">Quantity: {{ $item->quantity }}</p>
-										<p class="text-sm">Total: ${{ $item->product->price * $item->quantity }}</p>
+										<p class="text-sm">Total: ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					@endforeach
-				@else
-					<p>Your cart is empty.</p>
 				@endif
 			</div>
 		</div>

@@ -15,8 +15,13 @@ class CartController extends Controller
             ->with('product')
             ->where('is_checked_out', false)
             ->get();
-        return view('user.page.cart', compact('cartItems'));
+
+        // Cek apakah cart kosong
+        $cartEmpty = $cartItems->isEmpty();
+
+        return view('user.page.cart', compact('cartItems', 'cartEmpty'));
     }
+
 
     public function add(Product $product)
     {
