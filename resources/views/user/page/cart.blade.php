@@ -17,7 +17,7 @@
 						@else
 							@foreach ($cartItems as $item)
 								<div class="row">
-									<p class="col text-bold">{{ $item->product->name }}</p>
+									<p class="col text-bold">{{ $item->product->product_name }}</p>
 									<p class="col">Price: ${{ number_format($item->product->price, 2) }}</p>
 									<p class="col">Quantity: {{ $item->quantity }}</p>
 									<p class="col">Total: ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
