@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('total_price', 10, 2);
+            $table->string('snap_token')->nullable();
+            $table->string('destination_city');
+            $table->string('destination_province');
             $table->string('status')->default('pending'); // pending, processed, shipped, completed, cancelled
             $table->timestamps();
         });
