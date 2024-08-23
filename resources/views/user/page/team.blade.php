@@ -5,7 +5,7 @@
 
 	<div class="container-fluid py-4">
 		<div class="row">
-			<div class="col-12 col-md-3">
+			<div class="col-12 col-md-4 col-lg-3 pb-5">
 				<div class="card">
 					<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 						<a class="d-block blur-shadow-image">
@@ -37,11 +37,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-md-3">
+			<div class="col-12 col-md-4 col-lg-3 pb-5">
 				<div class="card">
 					<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 						<a class="d-block blur-shadow-image">
-							<img src="{{ asset('img/pp-arimahendra.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+							<img src="{{ asset('img/farah.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
 						</a>
 					</div>
 
@@ -69,11 +69,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-md-3">
+			<div class="col-12 col-md-4 col-lg-3 pb-5">
 				<div class="card">
 					<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 						<a class="d-block blur-shadow-image">
-							<img src="{{ asset('img/pp-arimahendra.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+							<img src="{{ asset('img/deny.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
 						</a>
 					</div>
 
@@ -102,11 +102,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-md-3">
+			<div class="col-12 col-md-4 col-lg-3 pb-5">
 				<div class="card">
 					<div class="card-header position-relative mt-n4 z-index-2 mx-3 p-0">
 						<a class="d-block blur-shadow-image">
-							<img src="{{ asset('img/pp-arimahendra.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
+							<img src="{{ asset('img/silpi.jpg') }}" alt="img-blur-shadow" class="h-100 img-fluid border-radius-lg img-fixed-height shadow">
 						</a>
 					</div>
 

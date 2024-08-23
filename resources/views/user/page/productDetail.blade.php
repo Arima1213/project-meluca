@@ -7,16 +7,16 @@
 		<div class="container mt-5">
 			<div class="row">
 				<div class="col-md-4 d-flex align-items-stretch">
-					<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" class="img-fluid w-100 h-75" alt="{{ $product->product_name }}"
+					<img src="{{ asset('storage/' . $product->images->first()->image_url) }}" class="img-fluid w-100 rounded" alt="{{ $product->product_name }}"
 						style="object-fit: cover; ">
 				</div>
 				<div class="col-md-8">
 					<h1>{{ $product->product_name }}</h1>
-					<p>{{ $product->product_description }}</p>
-					<p>Weight: {{ $product->product_weight }}g</p>
-					<p>Price: ${{ $product->price }}</p>
-					<p>Stock: {{ $product->stock }}</p>
-					<p>
+					<p class="my-0">{{ $product->product_description }}</p>
+					<p class="my-0">Weight: {{ $product->product_weight }}g</p>
+					<p class="my-0">Price: ${{ $product->price }}</p>
+					<p class="my-0">Stock: {{ $product->stock }}</p>
+					<p class="my-0">
 						Categories:
 						@foreach ($product->categories as $category)
 							<a href="{{ route('products', ['category' => $category->id]) }}">{{ $category->name }}</a>
