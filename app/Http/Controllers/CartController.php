@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Product;
 use App\Models\CartItem;
 use Illuminate\Http\Request;
@@ -108,5 +109,25 @@ class CartController extends Controller
         }
 
         return response()->json(['count' => $count]);
+    }
+
+    public function delete($id)
+    {
+        try {
+            $cartItem = CartItem::findOrFail($id);
+            $cartItem->delete();
+
+            return redirect()->route('cart.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' => 'Produk berhasil dihapus dari keranjang.'
+            ]);
+        } catch (Exception $e) {
+            return redirect()->route('cart.index')->with('alert', [
+                'type' => 'error',
+                'title' => 'Kesalahan!',
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ]);
+        }
     }
 }

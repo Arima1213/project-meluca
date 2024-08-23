@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::get('/get-cities/{provinceId}', [CartController::class, 'getCities']);
     Route::post('/get-shipping-cost', [CartController::class, 'getShippingCost']);
+    Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart.delete');
 
 
     Route::prefix('admin')->group(function () {

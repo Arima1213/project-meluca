@@ -28,7 +28,7 @@
 								<h5 class="card-title">{{ $product->product_name }}</h5>
 								<p class="card-text mb-4">{{ $product->product_description }}</p>
 								<p class="card-text my-0 py-0">Weight: {{ $product->product_weight }}g</p>
-								<p class="card-text my-0 py-0">Price: ${{ $product->price }}</p>
+								<p class="card-text my-0 py-0">Price: Rp {{ number_format($product->price, 0, ',', '.') }}</p> <!-- Modifikasi format harga ke Rupiah -->
 								<p class="card-text my-0 py-0">Stock: {{ $product->stock }}</p>
 								<p class="card-text my-0 py-0">
 									Categories:

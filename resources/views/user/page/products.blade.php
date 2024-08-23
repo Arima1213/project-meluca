@@ -19,7 +19,7 @@
 							<a href="{{ url('detail-product/' . $product->id) }}">
 								<h5 class="font-weight-normal mt-3">{{ $product->product_name }}</h5>
 							</a>
-							<p>Rp {{ number_format($product->price, 2, ',', '.') }}</p>
+							<p>Rp {{ number_format($product->price, 0, ',', '.') }}</p> <!-- Mengubah format harga ke Rupiah -->
 							<a href="{{ url('detail-product/' . $product->id) }}" class="btn bg-gradient-primary mb-0 mt-3">Read more</a>
 						</div>
 					</div>

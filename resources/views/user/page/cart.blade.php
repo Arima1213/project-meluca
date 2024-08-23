@@ -16,11 +16,18 @@
 							<p>Your cart is empty.</p>
 						@else
 							@foreach ($cartItems as $item)
-								<div class="row" data-weight="{{ $item->product->product_weight * $item->quantity }}">
+								<div class="row mb-3" data-weight="{{ $item->product->product_weight * $item->quantity }}">
 									<p class="col text-bold">{{ $item->product->product_name }}</p>
-									<p class="col">Price: ${{ number_format($item->product->price, 2) }}</p>
+									<p class="col">Price: Rp{{ number_format($item->product->price, 0, ',', '.') }}</p>
 									<p class="col">Quantity: {{ $item->quantity }}</p>
-									<p class="col">Total: ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
+									<p class="col">Total: Rp{{ number_format($item->product->price * $item->quantity, 0, ',', '.') }}</p>
+									<p class="col">
+									<form action="{{ route('cart.delete', $item->id) }}" method="POST">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="btn btn-danger btn-sm">Remove</button>
+									</form>
+									</p>
 								</div>
 							@endforeach
 
@@ -64,7 +71,8 @@
 							<!-- Section Total -->
 							<div class="row mt-4">
 								<div class="col text-right">
-									<h6>Total: $<span id="total-amount">{{ number_format($cartItems->sum(fn($item) => $item->product->price * $item->quantity), 2) }}</span></h6>
+									<h6>Total: Rp<span
+											id="total-amount">{{ number_format($cartItems->sum(fn($item) => $item->product->price * $item->quantity), 0, ',', '.') }}</span></h6>
 								</div>
 							</div>
 						@endif
@@ -121,7 +129,7 @@
 							$('#shipping-options').empty();
 							$.each(data[0].costs, function(index, cost) {
 								let btn = $('<button class="btn btn-outline-primary mr-2 shipping-option-btn col">')
-									.text(cost.service + ' - $' + cost.cost[0].value)
+									.text(cost.service + ' - Rp' + cost.cost[0].value.toLocaleString('id-ID'))
 									.data('cost', cost.cost[0].value)
 									.data('service', cost.service);
 
@@ -139,7 +147,7 @@
 				let shippingCost = $(this).data('cost');
 				let newTotal = parseFloat(totalAmount) + parseFloat(shippingCost);
 
-				$('#total-amount').text(newTotal.toFixed(2));
+				$('#total-amount').text(newTotal.toLocaleString('id-ID'));
 			});
 		});
 	</script>
