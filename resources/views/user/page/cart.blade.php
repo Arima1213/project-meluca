@@ -108,7 +108,7 @@
 						data: {
 							_token: '{{ csrf_token() }}',
 							city: cityId,
-							weight: 1700, // Example weight in grams
+							weight: 1700,
 							courier: courier
 						},
 						success: function(data) {

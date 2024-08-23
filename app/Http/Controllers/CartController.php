@@ -37,18 +37,11 @@ class CartController extends Controller
 
     public function getCities($provinceId)
     {
-        $cities = Cache::remember('cities_' . $provinceId, 60 * 60 * 24, function () use ($provinceId) {
-            $response = Http::withHeaders([
-                'key' => '3de2990b5e0f079607d4e3cb406132b9',
-            ])->get('https://api.rajaongkir.com/starter/city', [
-                'province' => $provinceId
-            ]);
-
-            if ($response->successful()) {
-                return $response->json()['rajaongkir']['results'];
-            }
-
-            return [];
+        // Ambil data kota dari cache atau API
+        $cities = Cache::remember("cities_{$provinceId}", 60 * 60 * 24, function () use ($provinceId) {
+            $response = Http::withHeaders(['key' => '3de2990b5e0f079607d4e3cb406132b9'])
+                ->get("https://api.rajaongkir.com/starter/city?province={$provinceId}");
+            return $response->json()['rajaongkir']['results'];
         });
 
         return response()->json($cities);
@@ -56,7 +49,7 @@ class CartController extends Controller
 
     public function getShippingCost(Request $request)
     {
-        $origin = 501; // ID kota asal (misalnya Yogyakarta)
+        $origin = 444;
         $destination = $request->input('city');
         $weight = $request->input('weight');
         $courier = $request->input('courier');
