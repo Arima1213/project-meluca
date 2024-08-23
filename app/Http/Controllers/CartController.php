@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\CartItem;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 
 class CartController extends Controller
 {
@@ -51,6 +52,25 @@ class CartController extends Controller
         });
 
         return response()->json($cities);
+    }
+
+    public function getShippingCost(Request $request)
+    {
+        $origin = 501; // ID kota asal (misalnya Yogyakarta)
+        $destination = $request->input('city');
+        $weight = $request->input('weight');
+        $courier = $request->input('courier');
+
+        $response = Http::withHeaders(['key' => '3de2990b5e0f079607d4e3cb406132b9'])
+            ->asForm()
+            ->post("https://api.rajaongkir.com/starter/cost", [
+                'origin' => $origin,
+                'destination' => $destination,
+                'weight' => $weight,
+                'courier' => $courier
+            ]);
+
+        return response()->json($response->json()['rajaongkir']['results']);
     }
 
 

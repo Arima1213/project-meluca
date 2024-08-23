@@ -26,7 +26,7 @@
 
 							<!-- Section Pengiriman -->
 							<div class="row mt-4">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="province">Province</label>
 										<select id="province" class="form-control">
@@ -37,7 +37,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="city">City</label>
 										<select id="city" class="form-control">
@@ -45,6 +45,20 @@
 										</select>
 									</div>
 								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="courier">Courier</label>
+										<select id="courier" class="form-control">
+											<option value="jne">JNE</option>
+											<option value="pos">POS</option>
+											<option value="tiki">TIKI</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="row mt-4">
+								<div class="col-md-12" id="shipping-options"></div>
 							</div>
 
 							<!-- Section Total -->
@@ -62,6 +76,8 @@
 
 	<script>
 		$(document).ready(function() {
+			let totalAmount = {{ $cartItems->sum(fn($item) => $item->product->price * $item->quantity) }};
+
 			$('#province').on('change', function() {
 				let provinceId = $(this).val();
 				if (provinceId) {
@@ -69,8 +85,7 @@
 						url: '/get-cities/' + provinceId,
 						type: 'GET',
 						success: function(data) {
-							$('#city').empty();
-							$('#city').append('<option value="">Select City</option>');
+							$('#city').empty().append('<option value="">Select City</option>');
 							$.each(data, function(key, value) {
 								$('#city').append('<option value="' + value.city_id + '">' + value.city_name +
 									'</option>');
@@ -78,9 +93,47 @@
 						}
 					});
 				} else {
-					$('#city').empty();
-					$('#city').append('<option value="">Select City</option>');
+					$('#city').empty().append('<option value="">Select City</option>');
 				}
+			});
+
+			$('#city, #courier').on('change', function() {
+				let cityId = $('#city').val();
+				let courier = $('#courier').val();
+
+				if (cityId && courier) {
+					$.ajax({
+						url: '/get-shipping-cost',
+						type: 'POST',
+						data: {
+							_token: '{{ csrf_token() }}',
+							city: cityId,
+							weight: 1700, // Example weight in grams
+							courier: courier
+						},
+						success: function(data) {
+							$('#shipping-options').empty();
+							$.each(data[0].costs, function(index, cost) {
+								let btn = $('<button class="btn btn-outline-primary mr-2 shipping-option-btn">')
+									.text(cost.service + ' - $' + cost.cost[0].value)
+									.data('cost', cost.cost[0].value)
+									.data('service', cost.service);
+
+								$('#shipping-options').append(btn);
+							});
+						}
+					});
+				}
+			});
+
+			$(document).on('click', '.shipping-option-btn', function() {
+				$('.shipping-option-btn').removeClass('btn-success').addClass('btn-outline-primary');
+				$(this).removeClass('btn-outline-primary').addClass('btn-success');
+
+				let shippingCost = $(this).data('cost');
+				let newTotal = parseFloat(totalAmount) + parseFloat(shippingCost);
+
+				$('#total-amount').text(newTotal.toFixed(2));
 			});
 		});
 	</script>
