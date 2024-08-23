@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\CartItem;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 class CartController extends Controller
 {
@@ -16,10 +18,20 @@ class CartController extends Controller
             ->where('is_checked_out', false)
             ->get();
 
-        // Cek apakah cart kosong
-        $cartEmpty = $cartItems->isEmpty();
+        // Ambil data provinsi dari cache atau API
+        $provinces = Cache::remember('provinces', 60 * 60 * 24, function () {
+            $response = Http::withHeaders([
+                'key' => 'your-api-key',
+            ])->get('https://api.rajaongkir.com/starter/province');
 
-        return view('user.page.cart', compact('cartItems', 'cartEmpty'));
+            if ($response->successful()) {
+                return $response->json()['rajaongkir']['results'];
+            }
+
+            return [];
+        });
+
+        return view('user.page.cart', compact('cartItems', 'provinces'));
     }
 
 
