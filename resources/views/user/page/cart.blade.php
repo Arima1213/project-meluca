@@ -58,7 +58,7 @@
 							</div>
 
 							<div class="row mt-4">
-								<div class="col-md-12" id="shipping-options"></div>
+								<div class="col-md-12 row gap-3" id="shipping-options"></div>
 							</div>
 
 							<!-- Section Total -->
@@ -120,7 +120,7 @@
 						success: function(data) {
 							$('#shipping-options').empty();
 							$.each(data[0].costs, function(index, cost) {
-								let btn = $('<button class="btn btn-outline-primary mr-2 shipping-option-btn">')
+								let btn = $('<button class="btn btn-outline-primary mr-2 shipping-option-btn col">')
 									.text(cost.service + ' - $' + cost.cost[0].value)
 									.data('cost', cost.cost[0].value)
 									.data('service', cost.service);
