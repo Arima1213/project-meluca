@@ -16,7 +16,7 @@
 							<p>Your cart is empty.</p>
 						@else
 							@foreach ($cartItems as $item)
-								<div class="row">
+								<div class="row" data-weight="{{ $item->product->product_weight * $item->quantity }}">
 									<p class="col text-bold">{{ $item->product->product_name }}</p>
 									<p class="col">Price: ${{ number_format($item->product->price, 2) }}</p>
 									<p class="col">Quantity: {{ $item->quantity }}</p>
@@ -77,6 +77,12 @@
 	<script>
 		$(document).ready(function() {
 			let totalAmount = {{ $cartItems->sum(fn($item) => $item->product->price * $item->quantity) }};
+			let totalWeight = 0;
+
+			// Hitung total berat produk
+			$('.row[data-weight]').each(function() {
+				totalWeight += parseFloat($(this).data('weight'));
+			});
 
 			$('#province').on('change', function() {
 				let provinceId = $(this).val();
@@ -108,7 +114,7 @@
 						data: {
 							_token: '{{ csrf_token() }}',
 							city: cityId,
-							weight: 1700,
+							weight: totalWeight, // Mengirimkan total berat ke controller
 							courier: courier
 						},
 						success: function(data) {
