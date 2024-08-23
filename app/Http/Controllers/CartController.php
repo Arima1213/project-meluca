@@ -21,7 +21,7 @@ class CartController extends Controller
         // Ambil data provinsi dari cache atau API
         $provinces = Cache::remember('provinces', 60 * 60 * 24, function () {
             $response = Http::withHeaders([
-                'key' => 'your-api-key',
+                'key' => '3de2990b5e0f079607d4e3cb406132b9',
             ])->get('https://api.rajaongkir.com/starter/province');
 
             if ($response->successful()) {
@@ -32,6 +32,25 @@ class CartController extends Controller
         });
 
         return view('user.page.cart', compact('cartItems', 'provinces'));
+    }
+
+    public function getCities($provinceId)
+    {
+        $cities = Cache::remember('cities_' . $provinceId, 60 * 60 * 24, function () use ($provinceId) {
+            $response = Http::withHeaders([
+                'key' => 'your-api-key',
+            ])->get('https://api.rajaongkir.com/starter/city', [
+                'province' => $provinceId
+            ]);
+
+            if ($response->successful()) {
+                return $response->json()['rajaongkir']['results'];
+            }
+
+            return [];
+        });
+
+        return response()->json($cities);
     }
 
 

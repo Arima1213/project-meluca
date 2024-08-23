@@ -12,28 +12,45 @@
 						</div>
 					</div>
 					<div class="card-body">
-						@if ($cartEmpty)
+						@if ($cartItems->isEmpty())
 							<p>Your cart is empty.</p>
 						@else
-							@php
-								$total = 0;
-							@endphp
 							@foreach ($cartItems as $item)
 								<div class="row">
-									<p class="col text-bold">{{ $item->product->product_name }}</p>
+									<p class="col text-bold">{{ $item->product->name }}</p>
 									<p class="col">Price: ${{ number_format($item->product->price, 2) }}</p>
 									<p class="col">Quantity: {{ $item->quantity }}</p>
 									<p class="col">Total: ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
-									@php
-										$total += $item->product->price * $item->quantity;
-									@endphp
 								</div>
 							@endforeach
 
-							<!-- Display total amount -->
+							<!-- Section Pengiriman -->
 							<div class="row mt-4">
-								<div class="col text-end">
-									<h5>Total Amount: $<span id="total-amount">{{ number_format($total, 2) }}</span></h5>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="province">Province</label>
+										<select id="province" class="form-control">
+											<option value="">Select Province</option>
+											@foreach ($provinces as $province)
+												<option value="{{ $province['province_id'] }}">{{ $province['province'] }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="city">City</label>
+										<select id="city" class="form-control">
+											<option value="">Select City</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<!-- Section Total -->
+							<div class="row mt-4">
+								<div class="col text-right">
+									<h6>Total: $<span id="total-amount">{{ number_format($cartItems->sum(fn($item) => $item->product->price * $item->quantity), 2) }}</span></h6>
 								</div>
 							</div>
 						@endif
@@ -43,19 +60,28 @@
 		</div>
 	</div>
 
-	<!-- Script to dynamically calculate total amount using JS -->
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			let total = 0;
-
-			// Loop through all total elements and sum them up
-			document.querySelectorAll('.row p:last-child').forEach(function(item) {
-				let itemTotal = parseFloat(item.textContent.replace('Total: $', '').replace(',', ''));
-				total += itemTotal;
+		$(document).ready(function() {
+			$('#province').on('change', function() {
+				let provinceId = $(this).val();
+				if (provinceId) {
+					$.ajax({
+						url: '/get-cities/' + provinceId,
+						type: 'GET',
+						success: function(data) {
+							$('#city').empty();
+							$('#city').append('<option value="">Select City</option>');
+							$.each(data, function(key, value) {
+								$('#city').append('<option value="' + value.city_id + '">' + value.city_name +
+									'</option>');
+							});
+						}
+					});
+				} else {
+					$('#city').empty();
+					$('#city').append('<option value="">Select City</option>');
+				}
 			});
-
-			// Display the total amount
-			document.getElementById('total-amount').textContent = total.toFixed(2);
 		});
 	</script>
 @endsection

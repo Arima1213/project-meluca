@@ -33,6 +33,7 @@ Route::get('/admin/logout', [authAdminController::class, 'logout'])->name('admin
 Route::middleware('auth')->group(function () {
     Route::get('/transactions', [transactionController::class, 'index'])->name('transactions');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/get-cities/{provinceId}', [CartController::class, 'getCities']);
 
 
     Route::prefix('admin')->group(function () {
