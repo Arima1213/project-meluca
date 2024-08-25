@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +15,10 @@ class DatabaseSeeder extends Seeder
         // Memanggil UserRolesSeeder untuk mengisi tabel user_roles
         $this->call(UserRolesSeeder::class);
 
+        // Memanggil AdminUserSeeder untuk membuat user admin
+        $this->call(AdminUserSeeder::class);
+
         // Menggunakan factory untuk membuat 10 user
-        User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
     }
 }
